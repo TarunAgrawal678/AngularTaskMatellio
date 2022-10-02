@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Images</h1>
+        </div>
+    </div>
+    <div class="row image-block">
+        <div class="col-lg-4" *ngFor="let data of allImages">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data?.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <label>{{data?.title}}</label>
+                    <label>{{data?.id}}</label>
+                    <label class="d-block">{{data?.url}}</label>
+                    <button type="button" *ngIf="!comparisonIds.hasOwnProperty(data.id)" (click)="addImageToCompare(data)" class="btn btn-success">Compare</button>
+                    <button type="button" *ngIf="comparisonIds.hasOwnProperty(data.id)" (click)="removeImageFromCompare(data.id)" class="btn btn-danger">Remove</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr aria-colspan="4">COMPARISON TABLE</tr>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">Title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of comparisonImages;index as i">
+                    <th scope="row">{{data?.title}}</th>
+                    <td>{{data?.id}}</td>
+                    <td>{{data?.url}}</td>
+                    <td>{{data?.title}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
