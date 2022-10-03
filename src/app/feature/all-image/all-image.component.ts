@@ -36,4 +36,7 @@ export class AllImageComponent implements OnInit {
     let index= this.comparisonImages.findIndex(i=>i.id===imageId);
     this.comparisonImages.splice(index,1);
   }
+  trackById(index:number, image:Image) {
+    return image.id;
+   }
 }

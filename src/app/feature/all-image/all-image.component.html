@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row image-block">
-        <div class="col-lg-4" *ngFor="let data of allImages">
+        <div class="col-lg-4" *ngFor="let data of allImages;trackBy: trackById">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{data?.url}}" alt="Card image cap">
                 <div class="card-body">
